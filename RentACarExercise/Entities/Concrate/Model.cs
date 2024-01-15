@@ -1,15 +1,10 @@
-﻿
-using Core.Entities;
+﻿namespace Core.DataAccess;
 
-namespace Entities.Concrate;
-
-internal class Model : Entity<int>
+public interface IEntityRepository<TEntity, TEntityId>
 {
-    public int Id { get; set; }
-    public int BrandId {get; set;}
-    public string Name { get; set; }
-    public short Year { get; set; }
-    public Brand? Brand { get; set; } = null;
-
-
+    public IList<TEntity> GetList();
+    public TEntity? GetById(TEntityId id);
+    public void Add(TEntity entity);
+    public void Update(TEntity entity);
+    public void Delete(TEntity entity);
 }

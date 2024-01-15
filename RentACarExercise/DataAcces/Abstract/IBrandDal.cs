@@ -1,12 +1,20 @@
-﻿
+﻿using Core.DataAccess;
 using Entities.Concrate;
-namespace DataAcces.Abstract;
+using Entities.Concrete;
 
-public interface IBrandDal
-{  public List<Brand> GetAll();
-   public Brand? GetById(int id);
-  public void Add(Brand brand);
-   public void Update(Brand brand);
-  public void Delete(IBrandDal brand);
+namespace DataAccess.Abstract;
 
+public interface IBrandDal : IEntityRepository<Brand, int>
+{
+    // CRUD - Create, Read, Update, Delete
+
+    // IEntityRepository<Brand, int> kalıtımının örnek canlandırması:
+    //public void Add(Brand entity);
+    //public void Delete(Brand entity);
+    //public Brand? GetById(int id);
+    //public IList<Brand> GetList();
+    //public void Update(Brand entity);
+    //
+
+    //public IList<Brand> GetBrandsByNameSearch(string nameSearch);
 }
